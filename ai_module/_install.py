@@ -17,6 +17,12 @@ def install(package, *args):
     print(" ".join(install_string))
     subprocess.check_call(" ".join(install_string))
 
+def uninstall(package, *args):
+    uninstall_string = [sys.executable, "-m", "pip", "uninstall", "-y", package]
+    uninstall_string = uninstall_string + list(args)
+    print(" ".join(uninstall_string))
+    subprocess.check_call(" ".join(uninstall_string))
+
 def install_all():
     install('nltk')
     install('numpy')
@@ -29,6 +35,12 @@ def install_all():
     except ImportError:
         print("Unable to import nltk and download 'wordnet'")
         pass
+
+def uninstall_all():
+    uninstall('nltk')
+    uninstall('numpy')
+    uninstall('tensorflow')
+    uninstall('keras')
 
 def clean():
     folder = os.path.join(os.getcwd(), "trained_data")

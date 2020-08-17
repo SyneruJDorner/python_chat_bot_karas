@@ -18,6 +18,10 @@ def main():
             install.install_all()
             return
 
+        if (arg == "uninstall"):
+            install.uninstall_all()
+            return
+
         if (arg == "clean"):
             install.clean()
             return

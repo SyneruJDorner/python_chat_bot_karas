@@ -63,4 +63,4 @@ def train():
 
     model = brain(train_x, train_y)
     save_brain(model, train_x, train_y)
-    print("brain created")
+    print("AI Brain Has Been Created!")
