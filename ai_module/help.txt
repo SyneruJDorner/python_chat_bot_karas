@@ -1,0 +1,19 @@
+
+
+
+Usage(s):
+===================================================================================
+'python .\main.py install'
+This will install all dependancies reuired for the bot.
+
+'python .\main.py clean'
+This will delete all training data.
+
+'python .\main.py train'
+This will train the bot based on the training_data json file.
+
+'python .\main.py'
+This will allow you to chat with the bot.
+===================================================================================
+
+
