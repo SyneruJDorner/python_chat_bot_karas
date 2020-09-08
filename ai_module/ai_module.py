@@ -1,10 +1,10 @@
-try:
-    import numpy as np
-    from keras.models import Sequential
-    from keras.layers import Dense, Activation, Dropout
-    from keras.optimizers import SGD
-except ImportError:
-    pass
+import sys, os
+file_path = os.path.dirname(os.path.abspath(__file__))
+
+import numpy as np
+from keras.models import Sequential
+from keras.layers import Dense, Activation, Dropout
+from keras.optimizers import SGD
 
 def brain(train_x, train_y):
     model = Sequential()
@@ -21,4 +21,4 @@ def brain(train_x, train_y):
 
 def save_brain(model, train_x, train_y):
     hist = model.fit(np.array(train_x), np.array(train_y), epochs=1000, batch_size=5, verbose=1)
-    model.save("trained_data\\chatbot_model.h5", hist)
+    model.save(os.path.join(os.path.dirname(file_path), "trained_data\\chatbot_model.h5"), hist)

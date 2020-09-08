@@ -1,6 +1,12 @@
 import sys
-from ai_module import training_module
-from ai_module import chat_module
+
+try:
+    from ai_module import training_module
+    from ai_module import chat_module
+except ImportError as e:
+    print("Error: " + str(e))
+except:
+    print("Error: ", str(sys.exc_info()[0]))
 
 def commands(command):
     import os, subprocess
@@ -26,7 +32,10 @@ def main(argv):
         commands(arg)
         return
 
-    chat_module.chat()
+    try:
+        chat_module.chat()
+    except:
+        print("Error: Unable to run the bot, please try running 'python .\main.py install' and 'python .\main.py train'")
 
 if __name__ == "__main__":
     main(sys.argv)

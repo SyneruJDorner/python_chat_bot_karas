@@ -1,22 +1,20 @@
-import sys
+import sys, os
 import pickle, json, random
+file_path = os.path.dirname(os.path.abspath(__file__))
+
 import numpy as np
 
-try:
-    import nltk
-    from nltk.stem import WordNetLemmatizer
-    lemmatizer = WordNetLemmatizer()
+import nltk
+from nltk.stem import WordNetLemmatizer
+lemmatizer = WordNetLemmatizer()
 
-    from keras.models import load_model
-    model = load_model("trained_data\\chatbot_model.h5")
+from keras.models import load_model
+model = load_model(os.path.join(os.path.dirname(file_path), "trained_data\\chatbot_model.h5"))
 
-    intents = json.loads(open("training_data\\intents.json").read())
-    words = pickle.load(open("trained_data\\words.pkl", "rb"))
-    classes = pickle.load(open("trained_data\\classes.pkl", "rb"))
-except ImportError as e:
-    print("Error: " + e)
-except:
-    print("Error: ", sys.exc_info()[0])
+intents = json.loads(open(os.path.join(os.path.dirname(file_path), "training_data\\intents.json")).read())
+words = pickle.load(open(os.path.join(os.path.dirname(file_path), "trained_data\\words.pkl"), "rb"))
+classes = pickle.load(open(os.path.join(os.path.dirname(file_path), "trained_data\\classes.pkl"), "rb"))
+
 
 def clean_up_sentence(sentence):
     sentence_words = nltk.word_tokenize(sentence)

@@ -1,20 +1,17 @@
 import sys, os
-import numpy as np
 import pickle, json, random
+file_path = os.path.dirname(os.path.abspath(__file__))
 
-try:
-    import nltk
-    from nltk.stem import WordNetLemmatizer
-    lemmatizer = WordNetLemmatizer()
-    
-    from ai_module.ai_module import brain, save_brain
-except ImportError as e:
-    print("Error: " + e)
-except:
-    print("Error: ", sys.exc_info()[0])
+import numpy as np
+
+import nltk
+from nltk.stem import WordNetLemmatizer
+lemmatizer = WordNetLemmatizer()
+
+from .ai_module import brain, save_brain
 
 def train():
-    trained_path = os.path.join(os.getcwd(), "trained_data")
+    trained_path = os.path.join(os.path.dirname(file_path), "trained_data")
 
     if not os.path.exists(trained_path):
         os.makedirs(trained_path)
@@ -23,7 +20,7 @@ def train():
     classes = []
     documents = []
     ignore_words = ['?', '!']
-    data_file = open("training_data\\intents.json").read()
+    data_file = open(os.path.join(os.path.dirname(file_path), "training_data\\intents.json")).read()
     intents = json.loads(data_file)
 
     for intent in intents['intents']:
@@ -39,8 +36,8 @@ def train():
     words = sorted(list(set(words)))
     classes = sorted(list(set(classes)))
 
-    pickle.dump(words, open("trained_data\\words.pkl", "wb"))
-    pickle.dump(classes, open("trained_data\\classes.pkl", "wb"))
+    pickle.dump(words, open(os.path.join(os.path.dirname(file_path), "trained_data\\words.pkl"), "wb"))
+    pickle.dump(classes, open(os.path.join(os.path.dirname(file_path), "trained_data\\classes.pkl"), "wb"))
 
     training = []
     output_empty = [0] * len(classes)

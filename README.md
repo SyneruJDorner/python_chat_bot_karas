@@ -1,4 +1,4 @@
-# Python Chat Bot (Using Karas)
+# Python Chat Bot (Using keras)
 **Requires:**<br/>
 Python (64-bit only due to tensorflow)<br/>
 >3.7.0 - 3.7.8<br/>
