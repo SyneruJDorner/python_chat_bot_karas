@@ -10,3 +10,12 @@ Use 'python .\main.py install' to first install all dependencies.<br/>
 Use 'python .\main.py train' to train the ai model.<br/>
 Use 'python .\main.py' to run the bot and chat with it.<br/>
 <br/>
+
+**How build:**<br/>
+Use 'python .\main.py build' this will build the files into an application with pyinstaller using onedir.<br/>
+<br/>
+
+**How clean build and training data:**<br/>
+Use 'python .\main.py clean' to clean up training data and built files.<br/>
+Use 'python .\main.py uninstall' to uninstall all installed dependencies.<br/>
+<br/>
