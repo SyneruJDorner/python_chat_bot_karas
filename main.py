@@ -32,10 +32,7 @@ def main(argv):
         commands(arg)
         return
 
-    try:
-        chat_module.chat()
-    except:
-        print("Error: Unable to run the bot, please try running 'python .\main.py install' and 'python .\main.py train'")
+    chat_module.chat()
 
 if __name__ == "__main__":
     main(sys.argv)

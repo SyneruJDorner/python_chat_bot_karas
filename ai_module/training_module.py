@@ -8,7 +8,7 @@ import nltk
 from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
 
-from .ai_module import brain, save_brain
+from .module import brain, save_brain
 
 def train():
     trained_path = os.path.join(os.path.dirname(file_path), "trained_data")

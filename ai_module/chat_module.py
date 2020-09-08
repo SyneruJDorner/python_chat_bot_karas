@@ -15,7 +15,6 @@ intents = json.loads(open(os.path.join(os.path.dirname(file_path), "training_dat
 words = pickle.load(open(os.path.join(os.path.dirname(file_path), "trained_data\\words.pkl"), "rb"))
 classes = pickle.load(open(os.path.join(os.path.dirname(file_path), "trained_data\\classes.pkl"), "rb"))
 
-
 def clean_up_sentence(sentence):
     sentence_words = nltk.word_tokenize(sentence)
     sentence_words = [lemmatizer.lemmatize(word.lower()) for word in sentence_words]
@@ -33,8 +32,8 @@ def bag_of_words(sentence, words, show_details=True):
 def predict_class(sentence, model):
     p = bag_of_words(sentence, words,show_details=False)
     res = model.predict(np.array([p]))[0]
-    ERROR_THRESHOLD = 0.25
-    results = [[i,r] for i,r in enumerate(res) if r>ERROR_THRESHOLD]
+    ERROR_THRESHOLD = 0.9
+    results = [[i, r] for i, r in enumerate(res) if r > ERROR_THRESHOLD]
     results.sort(key=lambda x: x[1], reverse=True)
     return_list = []
     for r in results:
@@ -42,6 +41,9 @@ def predict_class(sentence, model):
     return return_list
 
 def getResponse(ints, intents_json):
+    if (len(ints) <= 0):
+        return "I dont understand, please rephrase the question and try again."
+
     tag = ints[0]['intent']
     list_of_intents = intents_json['intents']
     for i in list_of_intents:

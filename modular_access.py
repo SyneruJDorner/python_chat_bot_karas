@@ -1,6 +1,12 @@
 import sys
-from .ai_module import training_module
-from .ai_module import chat_module
+
+try:
+    from ai_module import training_module
+    from ai_module import chat_module
+except ImportError as e:
+    print("Error: " + str(e))
+except:
+    print("Error: ", str(sys.exc_info()[0]))
 
 def commands(command):
     import os, subprocess
@@ -18,9 +24,12 @@ def execute(command):
         print(file_contents)
         return
 
-    if (arg == "train"):
-        training_module.train()
-        return
+    try:
+        if (arg == "train"):
+            training_module.train()
+            return
+    except:
+        print("Error: ", str(sys.exc_info()[0]))
 
     if (arg == "install" or arg == "uninstall" or arg == "train" or arg == "clean"):
         commands(arg)
