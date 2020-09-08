@@ -1,14 +1,17 @@
+import sys, os
+import numpy as np
+import pickle, json, random
+
 try:
-    import os
     import nltk
     from nltk.stem import WordNetLemmatizer
     lemmatizer = WordNetLemmatizer()
-
-    import numpy as np
-    import pickle, json, random
+    
     from ai_module.ai_module import brain, save_brain
-except ImportError:
-    pass
+except ImportError as e:
+    print("Error: " + e)
+except:
+    print("Error: ", sys.exc_info()[0])
 
 def train():
     trained_path = os.path.join(os.getcwd(), "trained_data")
