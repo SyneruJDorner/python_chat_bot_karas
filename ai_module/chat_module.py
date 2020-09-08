@@ -9,11 +9,13 @@ from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
 
 from keras.models import load_model
-model = load_model(os.path.join(os.path.dirname(file_path), "trained_data\\chatbot_model.h5"))
+parent_folder_path = os.path.dirname(file_path)
+model = load_model(os.path.join(parent_folder_path, "trained_data\\chatbot_model.h5"))
 
-intents = json.loads(open(os.path.join(os.path.dirname(file_path), "training_data\\intents.json")).read())
-words = pickle.load(open(os.path.join(os.path.dirname(file_path), "trained_data\\words.pkl"), "rb"))
-classes = pickle.load(open(os.path.join(os.path.dirname(file_path), "trained_data\\classes.pkl"), "rb"))
+trainging_settings = json.loads(open(os.path.join(parent_folder_path, "training_data\\_settings_.json")).read())
+intents = json.loads(open(os.path.join(parent_folder_path, "training_data\\intents.json")).read())
+words = pickle.load(open(os.path.join(parent_folder_path, "trained_data\\words.pkl"), "rb"))
+classes = pickle.load(open(os.path.join(parent_folder_path, "trained_data\\classes.pkl"), "rb"))
 
 def clean_up_sentence(sentence):
     sentence_words = nltk.word_tokenize(sentence)
@@ -32,7 +34,7 @@ def bag_of_words(sentence, words, show_details=True):
 def predict_class(sentence, model):
     p = bag_of_words(sentence, words,show_details=False)
     res = model.predict(np.array([p]))[0]
-    ERROR_THRESHOLD = 0.9
+    ERROR_THRESHOLD = trainging_settings['confidence']
     results = [[i, r] for i, r in enumerate(res) if r > ERROR_THRESHOLD]
     results.sort(key=lambda x: x[1], reverse=True)
     return_list = []

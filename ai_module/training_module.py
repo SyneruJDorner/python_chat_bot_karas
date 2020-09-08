@@ -11,7 +11,8 @@ lemmatizer = WordNetLemmatizer()
 from .module import brain, save_brain
 
 def train():
-    trained_path = os.path.join(os.path.dirname(file_path), "trained_data")
+    parent_folder_path = os.path.dirname(file_path)
+    trained_path = os.path.join(parent_folder_path, "trained_data")
 
     if not os.path.exists(trained_path):
         os.makedirs(trained_path)
@@ -20,8 +21,8 @@ def train():
     classes = []
     documents = []
     ignore_words = ['?', '!']
-    data_file = open(os.path.join(os.path.dirname(file_path), "training_data\\intents.json")).read()
-    intents = json.loads(data_file)
+    trainging_settings = json.loads(open(os.path.join(parent_folder_path, "training_data\\_settings_.json")).read())
+    intents = json.loads(open(os.path.join(parent_folder_path, "training_data\\intents.json")).read())
 
     for intent in intents['intents']:
         for pattern in intent['patterns']:
@@ -36,8 +37,8 @@ def train():
     words = sorted(list(set(words)))
     classes = sorted(list(set(classes)))
 
-    pickle.dump(words, open(os.path.join(os.path.dirname(file_path), "trained_data\\words.pkl"), "wb"))
-    pickle.dump(classes, open(os.path.join(os.path.dirname(file_path), "trained_data\\classes.pkl"), "wb"))
+    pickle.dump(words, open(os.path.join(parent_folder_path, "trained_data\\words.pkl"), "wb"))
+    pickle.dump(classes, open(os.path.join(parent_folder_path, "trained_data\\classes.pkl"), "wb"))
 
     training = []
     output_empty = [0] * len(classes)
@@ -61,6 +62,6 @@ def train():
     train_x = list(training[:,0])
     train_y = list(training[:,1])
 
-    model = brain(train_x, train_y)
-    save_brain(model, train_x, train_y)
+    model = brain(trainging_settings, train_x, train_y)
+    save_brain(trainging_settings, model, train_x, train_y)
     print("AI Brain Has Been Created!")

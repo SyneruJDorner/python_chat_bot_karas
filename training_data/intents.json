@@ -1,59 +1,59 @@
 {
-        "intents":
-        [
-                {
-                        "tag": "greeting",
-                        "patterns": ["Hi there", "Is anyone there?", "Hey", "Hola", "Hello", "Good day", "Good afternoon", "Good evening"],
-                        "responses": ["Greetings", "Good to see you again", "Hi there"],
-                        "context": [""]
-                },
-                {
-                        "tag": "goodbye",
-                        "patterns": ["Bye", "See you later", "Goodbye", "Nice chatting to you, bye", "Till next time", "Good night", "Cheers"],
-                        "responses": ["See you!", "Have a nice day", "Bye! Come back again soon."],
-                        "context": [""]
-                },
-                {
-                        "tag": "how_you_human",
-                        "patterns": ["How are you?", "How are you doing?", "How has the day been?", "How have you been?"],
-                        "responses": ["I'm doing good, thanks for asking. How have you been?", "I've been good and yourself", "Fantastic, how about yourself?"],
-                        "context": [""]
-                },
-                {
-                        "tag": "how_you_bot_positive",
-                        "patterns": ["I'm doing good.", "I am fine.", "Today has been good.", "Very good", "Very good, thanks.", "Very good thank you.", "Good thanks."],
-                        "responses": ["That is good to hear.", "Awesome to hear that.", "Great to hear."],
-                        "context": [""]
-                },
-                {
-                        "tag": "how_you_bot_negative",
-                        "patterns": ["I'm doing bad.", "I am terrible.", "Today has not been good.", "Today hasn't been good.", "Very bad", "Very very bad", "Very bad, but thanks for asking.", "Sad."],
-                        "responses": ["Sorry to hear that, is there something I'll be able to assist with?", "Sorry to hear that, maybe there is something i could assist with?", "I am so sorry to hear that, how can I help you?"],
-                        "context": [""]
-                },
-                {
-                        "tag": "request_help",
-                        "patterns": ["Can you help me?", "Can you assist me?", "I need help.", "I need assistance.", "Can you help me out?", "Could I ask for assistance?", "Are you capable of helping me?"],
-                        "responses": ["Sure, how can i assist you?", "Of course, what can I help with?"],
-                        "context": [""]
-                },
-                {
-                        "tag": "standard_bank_info",
-                        "patterns": ["Can I get the customer service number?", "Can I get the customer service number please?", "Can you provide me the customer service number?", "Can I have the customer service number?", "What's the customer service number?", "What is the customer service number?"],
-                        "responses": ["Customer service: XXXX XXX XXX"],
-                        "context": [""]
-                },
-                {
-                        "tag": "thanks",
-                        "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me"],
-                        "responses": ["Happy to help!", "Any time!", "My pleasure"],
-                        "context": [""]
-                },
-                {
-                        "tag": "noanswer",
-                        "patterns": [],
-                        "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"],
-                        "context": [""]
-                }
-        ]
+    "intents":
+    [
+        {
+            "tag": "greeting",
+            "patterns": ["Hi there", "Is anyone there?", "Hey", "Hola", "Hello", "Good day", "Good afternoon", "Good evening"],
+            "responses": ["Greetings", "Good to see you again", "Hi there"],
+            "context": [""]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": ["Bye", "See you later", "Goodbye", "Nice chatting to you, bye", "Till next time", "Good night", "Cheers"],
+            "responses": ["See you!", "Have a nice day", "Bye! Come back again soon."],
+            "context": [""]
+        },
+        {
+            "tag": "how_you_human",
+            "patterns": ["How are you?", "How are you doing?", "How has the day been?", "How have you been?"],
+            "responses": ["I'm doing good, thanks for asking. How have you been?", "I've been good and yourself", "Fantastic, how about yourself?"],
+            "context": [""]
+        },
+        {
+            "tag": "how_you_bot_positive",
+            "patterns": ["I'm doing good.", "I am fine.", "Today has been good.", "Very good", "Very good, thanks.", "Very good thank you.", "Good thanks."],
+            "responses": ["That is good to hear.", "Awesome to hear that.", "Great to hear."],
+            "context": [""]
+        },
+        {
+            "tag": "how_you_bot_negative",
+            "patterns": ["I'm doing bad.", "I am terrible.", "Today has not been good.", "Today hasn't been good.", "Very bad", "Very very bad", "Very bad, but thanks for asking.", "Sad."],
+            "responses": ["Sorry to hear that, is there something I'll be able to assist with?", "Sorry to hear that, maybe there is something i could assist with?", "I am so sorry to hear that, how can I help you?"],
+            "context": [""]
+        },
+        {
+            "tag": "request_help",
+            "patterns": ["Can you help me?", "Can you assist me?", "I need help.", "I need assistance.", "Can you help me out?", "Could I ask for assistance?", "Are you capable of helping me?"],
+            "responses": ["Sure, how can i assist you?", "Of course, what can I help with?"],
+            "context": [""]
+        },
+        {
+            "tag": "standard_bank_info",
+            "patterns": ["Can I get the customer service number?", "Can I get the customer service number please?", "Can you provide me the customer service number?", "Can I have the customer service number?", "What's the customer service number?", "What is the customer service number?"],
+            "responses": ["Customer service: XXXX XXX XXX"],
+            "context": [""]
+        },
+        {
+            "tag": "thanks",
+            "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me"],
+            "responses": ["Happy to help!", "Any time!", "My pleasure"],
+            "context": [""]
+        },
+        {
+            "tag": "noanswer",
+            "patterns": [],
+            "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"],
+            "context": [""]
+        }
+    ]
 }
